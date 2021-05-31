@@ -1,0 +1,20 @@
+[
+  {
+    "name": "default",
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5434,
+    "username": "postgres",
+    "password": "library123",
+    "database": "library_manager",
+    "entities": [
+      "./src/infra/entities/*.ts"
+    ],
+    "migrations": [
+      "./src/infra/config/database/migrations/*.ts"
+    ],
+    "cli": {
+      "migrationsDir": "./src/infra/config/database/migrations"
+    }
+  }
+]
