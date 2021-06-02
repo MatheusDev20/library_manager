@@ -5,7 +5,7 @@
     "host": "localhost",
     "port": 5434,
     "username": "postgres",
-    "password": "library123",
+    "password": "library1231",
     "database": "library_manager",
     "entities": [
       "./src/infra/entities/*.ts"
