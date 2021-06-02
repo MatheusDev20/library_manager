@@ -1,9 +1,8 @@
 import Router from 'express';
+import userRoutes from './users/usersRoute';
 
 const router = Router();
 
-router.get('/', (req, res) => {
-  res.json({ message: 'Testing automatic deploy.' });
-});
+router.use('/users', userRoutes);
 
 export default router;
