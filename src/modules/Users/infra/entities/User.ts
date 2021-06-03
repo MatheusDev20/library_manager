@@ -5,7 +5,7 @@ import {
 } from 'typeorm';
 import { UserSector } from './enums/UserRole';
 
-@Entity()
+@Entity('users')
 export class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;

@@ -2,6 +2,6 @@
 /* eslint-disable no-shadow */
 export enum UserSector {
   ADMIN = 'admin',
-  DIRECTOR = 'Director',
+  DIRECTOR = 'director',
   EMPLOYER = 'employer'
 }

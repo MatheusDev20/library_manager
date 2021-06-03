@@ -1,14 +1,5 @@
 import { createConnection } from 'typeorm';
 
-const connect = new Promise((resolve, reject) => {
-  try {
-    createConnection();
-    resolve(() => {
-      console.log('Conexão estabelecidda');
-    });
-  } catch (err) {
-    reject(err);
-  }
+createConnection().then(() => {
+  console.log('Conexão Estabelecida');
 });
-
-export { connect };
