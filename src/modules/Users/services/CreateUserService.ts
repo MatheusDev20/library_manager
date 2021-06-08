@@ -10,11 +10,14 @@ export class CreateUserService {
   ) { }
 
   public async execute({
-    firstName, lastName, email, role, recoveryEmail, admin, avatar,
+    firstName, lastName, email, role, recoveryEmail, admin,
   }: ICreateUserDTO) {
     const userData = {
-      firstName, lastName, email, role, recoveryEmail, admin, avatar,
+      firstName, lastName, email, role, recoveryEmail, admin,
     };
-    this.usersRepository.create(userData);
+    console.log('?');
+    const user = this.usersRepository.create(userData);
+
+    return user;
   }
 }

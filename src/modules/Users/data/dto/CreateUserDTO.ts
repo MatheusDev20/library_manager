@@ -7,5 +7,4 @@ export interface ICreateUserDTO {
   admin: boolean
   recoveryEmail: string;
   role: UserSector
-  avatar: string;
 }

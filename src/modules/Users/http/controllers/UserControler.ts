@@ -1,18 +1,29 @@
-import { Request, Response } from 'express';
+import { Request, response, Response } from 'express';
+import { container } from 'tsyringe';
 import { HttpResponse } from '../../../../domain/models/HttpModel';
-import { RegisterUserUseCase } from '../../../../domain/useCases/RegisterUser';
+import { CreateUserService } from '../../services/CreateUserService';
 
 class UserController {
-  private registerUser: RegisterUserUseCase
+  public async create(req: Request, res: Response): Promise<Response<HttpResponse>> {
+    const {
+      firstName, lastName, email, recoveryEmail, role,
+    } = req.body;
+    const admin = false;
+    const userData = {
+      firstName,
+      lastName,
+      email,
+      recoveryEmail,
+      role,
+      admin,
+    };
+    const createUser = container.resolve(CreateUserService);
 
-  constructor(registerUserUseCase: RegisterUserUseCase) {
-    this.registerUser = registerUserUseCase;
-  }
+    const user = await createUser.execute(userData);
 
-  public async create(req: Request, res: Response): Promise<HttpResponse> {
-    const resUser = this.registerUser.register(req.body);
-    console.log(resUser);
-    return new HttpResponse(200, 'TESTE', {});
+    const httpResponse = new HttpResponse(201, 'User Succesfully Created', user);
+
+    return res.json(httpResponse);
   }
 }
 

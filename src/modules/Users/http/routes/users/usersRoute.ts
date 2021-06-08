@@ -1,15 +1,9 @@
 import Router from 'express';
-import { container } from 'tsyringe';
-import { CreateUserService } from '../../../services/CreateUserService';
+import { UserController } from '../../controllers/UserControler';
 
+const userController = new UserController();
 const userRoutes = Router();
-userRoutes.post('/', (req, res) => {
-  const userService = container.resolve(CreateUserService);
-  userService.execute(req.body);
-
-  return res.send('ok');
-});
-
+userRoutes.post('/', userController.create);
 userRoutes.get('/', (req, res) => {
 
 });

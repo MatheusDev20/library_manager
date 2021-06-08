@@ -37,7 +37,4 @@ export class User {
     default: UserSector.EMPLOYER,
   })
   role: UserSector
-
-  @Column()
-  avatar: string
 }
